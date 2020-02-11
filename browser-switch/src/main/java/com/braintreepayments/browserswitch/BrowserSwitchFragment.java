@@ -100,8 +100,9 @@ public abstract class BrowserSwitchFragment extends Fragment {
      * @param url the url to open.
      */
     public void browserSwitch(int requestCode, String url) {
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url))
-                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY | Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET
+                | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
 
         ChromeCustomTabs.addChromeCustomTabsExtras(mContext, intent);
 
