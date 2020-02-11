@@ -49,10 +49,6 @@ publishing {
     publications {
         android.libraryVariants.all { variant ->
             "maven${variant.name.capitalize()}Aar"(MavenPublication) {
-                project.components.forEach({component ->
-                    println(variant.name)
-                    println(component.name)
-                })
                 from project.components.findByName("${variant.name}AndroidLibrary")
                 groupId = 'com.braintreepayments'
                 version = "${android.defaultConfig.versionName}"
