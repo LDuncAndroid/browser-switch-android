@@ -2,10 +2,13 @@ buildscript {
     repositories {
         google()
         jcenter()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.4'
-        classpath 'io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.5.3'
+        dependencies { classpath "io.freefair.gradle:android-gradle-plugins:3.5.2.3" }
     }
 }
 
@@ -17,5 +20,5 @@ allprojects {
 }
 
 ext {
-    androidxVersion = '1.0.0'
+    androidxVersion = '1.1.0'
 }
